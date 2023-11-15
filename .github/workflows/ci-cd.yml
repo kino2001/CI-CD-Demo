@@ -18,7 +18,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: node test
+        run: npm test
 
   build_csharp:
     runs-on: ubuntu-latest
@@ -26,11 +26,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          repository: kino2001/CSharp-Console
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
-          repository: kino2001/CSharp-Console
           dotnet-version: "7.0.x"
 
       - name: Restore dependencies
