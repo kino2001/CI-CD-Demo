@@ -34,8 +34,5 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install dependencies
-        run: npm ci
-
       - name: Run index.js from another repository
         run: node index.js
