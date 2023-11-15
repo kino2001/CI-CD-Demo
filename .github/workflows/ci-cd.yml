@@ -20,19 +20,24 @@ jobs:
       - name: Run tests
         run: node test
 
-  clone-and-run:
+  build_csharp:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout another repository
+      - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          repository: kino2001/console-js
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
         with:
-          node-version: "18"
+          repository: kino2001/CSharp-Console
+          dotnet-version: "7.0.x"
 
-      - name: Run index.js from another repository
-        run: node index.js
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build the project
+        run: dotnet build
+
+      - name: Run the project
+        run: dotnet run
