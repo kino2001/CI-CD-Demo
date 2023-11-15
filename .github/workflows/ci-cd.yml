@@ -1,4 +1,4 @@
-name: Test React Project
+name: CI CD Startup
 on: push
 jobs:
   test:
@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Get source code
         uses: actions/checkout@v4
-      - name: Install NodeJs           
+      - name: Install NodeJs
         uses: actions/setup-node@v3
         with:
           node-version: 18
